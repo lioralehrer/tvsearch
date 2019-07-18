@@ -18,3 +18,4 @@ def getShowsData():
     for show in AVAILABE_SHOWS:
         shows.append(json.loads(getJsonFromFile(show)))
     return shows
+
