@@ -21,6 +21,15 @@ def img(filepath):
 def index():
     sectionTemplate = "./templates/home.tpl"
     return template("./pages/index.html", version=utils.getVersion(), sectionTemplate=sectionTemplate, sectionData = {})
+
+@route('/browse')
+def index():
+    sectionTemplate = "./templates/browse.tpl"
+    return template("./pages/index.html", version=utils.getVersion(), sectionTemplate=sectionTemplate, sectionData = {})
+@route('/search')
+def index():
+    sectionTemplate = "./templates/search.tpl"
+    return template("./pages/index.html", version=utils.getVersion(), sectionTemplate=sectionTemplate, sectionData = {})   
 if __name__ == "__main__":
-    run(host='localhost', port=os.environ.get('PORT', 5000))
+    run(host='localhost', port=os.environ.get('PORT', 5000),reloader=True,debug=True)
 
