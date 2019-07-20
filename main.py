@@ -56,6 +56,12 @@ def search():
     sectionTemplate = "./templates/search.tpl"
     return template("./pages/index.html", version=utils.getVersion(), sectionTemplate=sectionTemplate, sectionData={})
 
+@post('/search')
+def search():
+    sectionTemplate = "./templates/search_result.tpl"
+    query = request.forms.get('q')
+    return template("./pages/index.html", version=utils.getVersion(), sectionData={},sectionTemplate=sectionTemplate,  query=query, results=utils.search(query))
+
 
 if __name__ == "__main__":
     run(host='localhost', port=os.environ.get(
